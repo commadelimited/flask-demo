@@ -23,6 +23,15 @@ def news():
     </h1>
     """
 
+@app.route("/news/<int:id>/<title>")
+def news_article(id, title):
+    return """
+    <h1>
+        {id}!<br />
+        {headline}.
+    </h1>
+    """.format(id=id, headline=title)
+
 @app.route("/schedule/")
 def schedule():
     return """
