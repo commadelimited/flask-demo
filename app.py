@@ -32,6 +32,17 @@ def news_article(id, title):
     </h1>
     """.format(id=id, headline=title)
 
+@app.route("/sponsors/")
+@app.route("/those-who-give-us-money/")
+def sponsors():
+    return """
+    <h1>
+        PyTennessee Sponsors!<br />
+        The ones with the bucks<br />
+        And the bags and stickers and shirts!
+    </h1>
+    """
+
 @app.route("/schedule/")
 def schedule():
     return """
@@ -39,16 +50,6 @@ def schedule():
         PyTennessee Conference Schedule!<br />
         Tough decisions all around.<br />
         But you, you chose wisely.
-    </h1>
-    """
-
-@app.route("/sponsors/")
-def sponsors():
-    return """
-    <h1>
-        PyTennessee Sponsors!<br />
-        The ones with the bucks<br />
-        And the bags and stickers and shirts!
     </h1>
     """
 
