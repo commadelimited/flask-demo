@@ -14,6 +14,26 @@ def homepage():
     </h1>
     """
 
+@app.route("/schedule")
+def schedule():
+    return """
+    <h1>
+        PyTennessee Conference Schedule for {day}!<br />
+        Tough decisions all around.<br />
+        But you, you chose wisely.
+    </h1>
+    """
+
+@app.route("/schedule/<day>") # converter
+def schedule_by_day(day=None):
+    return """
+    <h1>
+        PyTennessee Conference Schedule!<br />
+        Tough decisions all around.<br />
+        But you, you chose wisely.
+    </h1>
+    """.format(day=day)
+
 @app.route("/news/")
 def news():
     return """
@@ -23,7 +43,7 @@ def news():
     </h1>
     """
 
-@app.route("/news/<int:id>/<title>")
+@app.route("/news/<int:id>/<title>") # converter: int, float, path
 def news_article(id, title):
     return """
     <h1>
@@ -40,16 +60,6 @@ def sponsors():
         PyTennessee Sponsors!<br />
         The ones with the bucks<br />
         And the bags and stickers and shirts!
-    </h1>
-    """
-
-@app.route("/schedule/")
-def schedule():
-    return """
-    <h1>
-        PyTennessee Conference Schedule!<br />
-        Tough decisions all around.<br />
-        But you, you chose wisely.
     </h1>
     """
 
