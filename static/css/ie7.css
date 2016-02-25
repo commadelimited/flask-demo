@@ -1,0 +1,10 @@
+/* Website template by freewebsitetemplates.com */
+#header ul li {
+	display: inline;
+}
+#header ul li a {
+	display: inline-block;
+}
+#header ul li a span {
+	display: inline-block;
+}

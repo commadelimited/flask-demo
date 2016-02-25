@@ -1,5 +1,6 @@
 from flask import (
-    Flask
+    Flask,
+    render_template,
 )
 
 app = Flask('__name__')
@@ -8,12 +9,7 @@ app.debug = True
 
 @app.route("/")
 def homepage():
-    return """
-    <h1>
-        Welcome to Sky Adventures!<br />
-        The home page says hello!
-    </h1>
-    """
+    return render_template('index.html')
 
 
 @app.route("/about-us/")
