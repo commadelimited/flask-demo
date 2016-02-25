@@ -7,7 +7,7 @@ app.debug = True
 
 
 @app.route("/")
-def homepage():
+def index():
     return """
     <h1>
         Welcome to Sky Adventures!<br />
