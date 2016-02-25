@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<!-- Website template by freewebsitetemplates.com -->
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Contact - Sky Adventure Website Template</title>
+    <link rel="stylesheet" type="text/css" href="/static/css/style.css">
+    <!--[if IE 7]><link rel="stylesheet" type="text/css" href="/static/css/ie7.css"><![endif]-->
+</head>
+<body>
+    <div id="page">
+
+        <div id="header">
+            <ul>
+                <li {% if request.url_rule.rule == '/' %} class="current"{% endif %}>
+                    <a href="{{url_for('index')}}"><span>Home</span></a>
+                </li>
+                <li {% if request.url_rule.rule == '/packages/' %} class="current"{% endif %}>
+                    <a href="{{url_for('packages')}}"><span>Adventures &amp; Packages</span></a>
+                </li>
+                <li {% if request.url_rule.rule == '/about-us/' %} class="current"{% endif %}>
+                    <a href="{{url_for('about')}}"><span>About</span></a>
+                </li>
+                <li {% if request.url_rule.rule == '/contact/' %} class="current"{% endif %}>
+                    <a href="{{url_for('contact')}}"><span>Contact</span></a>
+                </li>
+            </ul>
+            <a href="{{url_for('index')}}" id="logo"><img src="/static/images/logo.png" alt="Logo"></a>
+        </div>
