@@ -46,7 +46,7 @@ def packages_detail(id, name):
 
 @app.route("/contact/")
 @app.route("/contact-sky-adventures/")
-def sponsors():
+def contact():
     return """
     <h1>
         Contact Sky Adventures!<br />
