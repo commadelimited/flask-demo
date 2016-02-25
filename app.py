@@ -1,6 +1,8 @@
 from flask import (
     Flask,
+    g,
     render_template,
+    request,
 )
 
 app = Flask('__name__')
@@ -8,46 +10,33 @@ app.debug = True
 
 
 @app.route("/")
-def homepage():
+def index():
     return render_template('index.html')
 
 
 @app.route("/about-us/")
-def schedule():
-    return """
-    <h1>
-        Find out more about Sky Adventures!
-    </h1>
-    """
+def about():
+    return render_template('about.html')
 
 
 @app.route("/packages/")  # converter: int, float, path
 def packages():
-    return """
-    <h1>
-        Here's a list of Sky Adventure packages.
-    </h1>
-    """
+    return render_template('packages.html')
 
 
 @app.route("/packages/<int:id>/<name>/")  # converter: int, float, path
-def packages_detail(id, name):
-    return """
-    <h1>
-        {id}!<br />
-        {name}.
-    </h1>
-    """.format(id=id, name=name)
+def package_details(id, name):
+    context = {
+        'id': id,
+        'name': name,
+    }
+    return render_template('packages-details.html', context=context)
 
 
-@app.route("/contact/")
 @app.route("/contact-sky-adventures/")
-def sponsors():
-    return """
-    <h1>
-        Contact Sky Adventures!<br />
-    </h1>
-    """
+@app.route("/contact/")
+def contact():
+    return render_template('contact.html')
 
 
 # Run application
