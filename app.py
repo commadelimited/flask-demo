@@ -5,6 +5,7 @@ from flask import (
 app = Flask('__name__')
 app.debug = True
 
+
 @app.route("/")
 def homepage():
     return """
@@ -14,25 +15,28 @@ def homepage():
     </h1>
     """
 
-@app.route("/schedule")
-def schedule():
-    return """
-    <h1>
-        PyTennessee Conference Schedule for {day}!<br />
-        Tough decisions all around.<br />
-        But you, you chose wisely.
-    </h1>
-    """
 
-@app.route("/schedule/<day>") # converter
-def schedule_by_day(day=None):
+@app.route("/schedule/")
+def schedule():
     return """
     <h1>
         PyTennessee Conference Schedule!<br />
         Tough decisions all around.<br />
         But you, you chose wisely.
     </h1>
+    """
+
+
+@app.route("/schedule/<day>/")  # converter
+def schedule_by_day(day=None):
+    return """
+    <h1>
+        PyTennessee Conference Schedule for {day}!<br />
+        Tough decisions all around.<br />
+        But you, you chose wisely.
+    </h1>
     """.format(day=day)
+
 
 @app.route("/news/")
 def news():
@@ -43,7 +47,8 @@ def news():
     </h1>
     """
 
-@app.route("/news/<int:id>/<title>") # converter: int, float, path
+
+@app.route("/news/<int:id>/<title>")  # converter: int, float, path
 def news_article(id, title):
     return """
     <h1>
@@ -51,6 +56,7 @@ def news_article(id, title):
         {headline}.
     </h1>
     """.format(id=id, headline=title)
+
 
 @app.route("/sponsors/")
 @app.route("/those-who-give-us-money/")
@@ -62,6 +68,7 @@ def sponsors():
         And the bags and stickers and shirts!
     </h1>
     """
+
 
 @app.route("/conduct/")
 def conduct():
