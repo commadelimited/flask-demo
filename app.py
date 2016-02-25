@@ -17,7 +17,7 @@ def index():
 
 
 @app.route("/about-us/")
-def schedule():
+def about():
     return """
     <h1>
         Find out more about Sky Adventures!
