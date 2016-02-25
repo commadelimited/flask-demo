@@ -8,7 +8,7 @@ app.debug = True
 
 @app.route("/")
 def hello():
-    return "Hello World!"
+    return '<img src="/static/img/nick.png" />'
 
 
 # Run application
