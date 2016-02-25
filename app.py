@@ -4,9 +4,12 @@ from flask import (
     render_template,
     request,
 )
+from packages import packages_blueprint
 
 app = Flask('__name__')
 app.debug = True
+
+app.register_blueprint(packages_blueprint, url_prefix='/packages')
 
 
 @app.route("/")
@@ -19,24 +22,19 @@ def about():
     return render_template('about.html')
 
 
-@app.route("/packages/")  # converter: int, float, path
-def packages():
-    return render_template('packages.html')
-
-
-@app.route("/packages/<int:id>/<name>/")  # converter: int, float, path
-def package_details(id, name):
-    context = {
-        'id': id,
-        'name': name,
-    }
-    return render_template('packages-details.html', context=context)
-
-
 @app.route("/contact-sky-adventures/")
 @app.route("/contact/")
 def contact():
     return render_template('contact.html')
+
+
+@app.before_request
+def before_request():
+    if 'packages' in request.endpoint:
+        g.active = 'packages'
+    else:
+        g.active = request.endpoint
+    print g.active
 
 
 # Run application

@@ -12,16 +12,16 @@
 
         <div id="header">
             <ul>
-                <li {% if request.endpoint == 'index' %} class="current"{% endif %}>
+                <li {% if g.active == 'index' %} class="current"{% endif %}>
                     <a href="{{url_for('index')}}"><span>Home</span></a>
                 </li>
-                <li {% if request.endpoint == 'packages' %} class="current"{% endif %}>
-                    <a href="{{url_for('packages')}}"><span>Adventures &amp; Packages</span></a>
+                <li {% if g.active == 'packages' %} class="current"{% endif %}>
+                    <a href="{{url_for('packages_blueprint.packages')}}"><span>Adventures &amp; Packages</span></a>
                 </li>
-                <li {% if request.endpoint == 'about' %} class="current"{% endif %}>
+                <li {% if g.active == 'about' %} class="current"{% endif %}>
                     <a href="{{url_for('about')}}"><span>About</span></a>
                 </li>
-                <li {% if request.endpoint == 'contact' %} class="current"{% endif %}>
+                <li {% if g.active == 'contact' %} class="current"{% endif %}>
                     <a href="{{url_for('contact')}}"><span>Contact</span></a>
                 </li>
             </ul>
